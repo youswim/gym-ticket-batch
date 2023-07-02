@@ -1,6 +1,13 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:gym-batch-db
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/gym-ticket-batch?characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${LOCAL_DB_USERNAME}
+    password: ${LOCAL_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+
+# ??? ???? ??? 6? ??? ?? ??
+  batch:
+    jdbc:
+      initialize-schema: always
